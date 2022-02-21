@@ -1,5 +1,3 @@
-
-
 alert("Bienvenido al juego de adivinar el numero del 0 a 36. Tienes 5 vidas, mucha suerte !!! ");
 
 let numeroUsuario = prompt(`Ingrese un numero. Tienes 5 vidas.`);
