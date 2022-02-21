@@ -1,19 +1,4 @@
-/*
 
-alert("Bienvenido al carrito 21! Que desea llevar?");
-
-let ba
-const hamburguesa = Number(prompt("Hamburguesas: 1-Baconcheese ($550). 2-Simple con queso ($350). 3-Lechuga y tomate ($400)."))
-
-const entrada = Number(prompt("Acompanamiento: 1-Nuggets ($250). 2-Papas cheddar ($350). 3-Bastones muzzarella ($300)."))
-
-let pedido;
-
-if(hamburguesa == 1){
-    pedido = 
-}
-
-*/
 
 alert("Bienvenido al juego de adivinar el numero del 0 a 36. Tienes 5 vidas, mucha suerte !!! ");
 
