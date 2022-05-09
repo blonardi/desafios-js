@@ -15,11 +15,11 @@ function adivinarNumero(numeroUsuario, numeroRandom){
     while(numeroUsuario != numeroRandom){
         vidas--;
 
-    if(vidas == 0){
-        alert(`Perdiste!! El numero era ${numeroRandom}`)
-        break;
-    }
-    numeroUsuario = prompt(`Incorrecto, ingrese otro numero. Te quedan ${vidas} vidas. `); 
+        if(vidas == 0){
+            alert(`Perdiste!! El numero era ${numeroRandom}`)
+            break;
+        }
+        numeroUsuario = prompt(`Incorrecto, ingrese otro numero. Te quedan ${vidas} vidas. `); 
     }
     
     if(numeroUsuario == numeroRandom){
