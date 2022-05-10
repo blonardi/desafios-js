@@ -55,19 +55,15 @@ const pintarCards = data => {
 
 
 const addToCarrito = e => {
-        // console.log(e.target)
-        // console.log(e.target.classList.contains('btn-primary'));
         if (e.target.classList.contains('btn-primary')) {
-            // console.log(e.target.parentElement);
             setCarrito(e.target.parentElement)
         }
         e.stopPropagation()
 }
 
 const setCarrito = objeto => {
-    console.log(objeto);
     // // OBJETO CON DATOS DE CARTA CLICKEADA
-    const newItem2 = {
+    const newItem = {
         id: objeto.querySelector('.btn-primary').dataset.id,
         title: objeto.querySelector('.card-title').textContent,
         precio: objeto.querySelector('.precio').textContent,
@@ -75,9 +71,39 @@ const setCarrito = objeto => {
         cantidad: 1,
     }
 
-    console.log(newItem2)
-    addProjectCart(newItem2)
+    // console.log(newItem)
+    addProjectCart(newItem)
 }
+//////////////////////*///////////////////////////////////////
+ 
+// clickButton.forEach(btn => {
+//     btn.addEventListener('click', addToCartProject)
+// })
+
+// function addToCartProject(e){
+//     // console.log("aprete el boton")
+//     const button = e.target;
+//     console.log(button)
+//     // con closest tomo la carta mas cercana 
+//     const item = button.closest('.card');
+//     console.log(item)
+//     // y luego los valores de la carta mas cercana, la card entera
+//     const itemTitle = item.querySelector('.card-title').textContent;
+//     // console.log(itemTitle);
+//     const itemPrice = item.querySelector('.precio').textContent;
+//     // console.log(itemPrice)
+//     const itemImg = item.querySelector('.card-img-top').src;
+//     // console.log(itemImg)
+//     //creo un objeto con los datos del item/proyecto
+//     const newItem = {
+//         title: itemTitle,
+//         precio: itemPrice,
+//         imagen: itemImg,
+//         cantidad: 1,
+//     }
+//     // aniado funcion de aniadir item/proyectos al carrito[array]
+//     addProjectCart(newItem)
+// }
 
 function addProjectCart(newItem){
 
@@ -92,28 +118,28 @@ function addProjectCart(newItem){
     
     for(let i = 0; i < carrito.length; i++){
         if(carrito[i].title.trim() === newItem.title.trim()){
-            console.log(carrito[i].title)
-            carrito[i].cantidad ++;  
-            const inputValue = inputElemento[i];
+            carrito[i].cantidad ++;
+            let inputValue = inputElemento[i];
             inputValue.value++;
+
             carritoTotal();
             return null;
             //con return null no se ejecuta las funciones de abajo.
         }
     }
-
     carrito.push(newItem);
+    // console.log(carrito)
     renderCarrito()
 }
 
 function renderCarrito(){
-    console.log(carrito);
-    Object.values(carrito).forEach(proyecto => {
+    tbody.innerHTML = '';
+    carrito.map(proyecto => {
         const tr = document.createElement('tr');
             tr.classList.add('projectCart');
             const content = `
             
-            <th scope="row">1</th>
+            <th scope="row">${proyecto.id}</th>
                 <td class="table__proyectos">
                     <img src="${proyecto.imagen}" alt="">
                     <h6 class="title">${proyecto.title}</h6>	
@@ -158,14 +184,14 @@ function removeProjectCart(e){
         }
     }
     
-    const alert = document.querySelector('.remove')
+    // const alert = document.querySelector('.remove')
 
-    setTimeout(function(){
-        alert.classList.add('remove')
-    },2000)
-    alert.classList.remove('remove')
-    
-    tr.remove();
+    // setTimeout( function(){
+    //   alert.classList.add('remove')
+    // }, 2000)
+    // alert.classList.remove('remove')
+
+    tr.remove(); 
     carritoTotal();
 }
 
